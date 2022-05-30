@@ -6,7 +6,7 @@ class Word:
         """
         Creates new Word object. 
 
-        Inputs:
+        Args:
             self: Word object
             rep (str): 5-letter string representation of word
 

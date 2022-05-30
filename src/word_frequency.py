@@ -8,7 +8,6 @@ word_frequency_data['word']=word_frequency_data['word'].astype(str)
 word_frequency_data.drop(word_frequency_data[word_frequency_data['word'].map(len) < 5 ].index, inplace=True) 
 word_frequency_data.drop(word_frequency_data[word_frequency_data['word'].map(len) > 5 ].index, inplace=True) 
 
-
 def calculate_word_frequency(rep):
     '''Calculate the word frequency value for the
     passed string
