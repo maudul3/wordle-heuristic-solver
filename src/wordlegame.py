@@ -22,13 +22,31 @@ class WordleGame:
 
         Returns:
             constraints (list<str>): constraints on word list, represented by
-                0 - correct position
+                2 - correct position
                 1 - in word wrong position
-                2 - not in word 
+                0 - not in word 
         """
         self.guesses_remaining -= 1
 
         if guess.rep == self.word.rep:
             self.correct_guess = True
-        
-        return 1
+
+        constraints = ['-1','-1','-1','-1','-1']
+        for i, letter in enumerate(guess.rep):
+            if letter == self.word.rep[i]:
+                constraints[i] = '2'
+            elif letter in self.word.rep:
+                constraints[i] = '1'
+            else:
+                constraints[i] = '0'
+
+        return constraints 
+
+if __name__ == '__main__':
+    from word import Word
+    test = Word("words")
+    guess = Word("board")
+    game = WordleGame(test)
+    constraints = game.check_guess(guess)
+    print ("Constraints: ", constraints)
+    
