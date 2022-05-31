@@ -1,7 +1,12 @@
 import pandas as pd
+from pathlib import Path
+
+data_path = (
+    Path(__file__).parent.parent.absolute() / 'data/letter_frequency.csv'
+) # Get full path of file on all machines
 
 # Read in letter frequency data
-letter_frequency_data = pd.read_csv('./data/letter_frequency.csv', usecols=['Letter','Count','Frequency'])
+letter_frequency_data = pd.read_csv(data_path, usecols=['Letter','Count','Frequency'])
 
 def calculate_letter_frequency(rep):
     """Calculate the total letter frequency for the five-letter word
