@@ -1,7 +1,7 @@
 # CS-441-541-Project
 
 # Repository Structure
-src - contains all original .py files
+src - contains all original .py files<br>
 data - contains all externally sourced data files
 
 # SRC structure and dependencies on other files
