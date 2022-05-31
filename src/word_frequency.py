@@ -1,7 +1,12 @@
 import pandas as pd
+from pathlib import Path
+
+data_path = (
+    Path(__file__).parent.parent.absolute() / 'data/word_frequency.csv'
+) # Get full path of file on all machines
 
 # Read in word frequency data
-word_frequency_data = pd.read_csv('./data/word_frequency.csv')
+word_frequency_data = pd.read_csv(data_path)
 
 # Filtering word df to include only five letter words
 word_frequency_data['word']=word_frequency_data['word'].astype(str)

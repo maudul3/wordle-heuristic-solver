@@ -10,7 +10,7 @@ class Agent:
             constraints (list<str>): constraints on word list, represented by
                 0 - correct position
                 1 - in word wrong position
-                2 - not in word 
+                2 - not in word
             heuristic (str): which heuristic we would like to use
         """
         # letter in word but not in position
