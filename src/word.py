@@ -17,7 +17,7 @@ class Word:
             raise ValueError("Word is not 5 letters")
 
         self.rep = rep.lower() # use of lower function normalize words to lowercase
-        self.unique = set(rep)
+        self.unique = set(rep) # unique characters in word
         self.characterfreq = calculate_letter_frequency(rep)
         self.wordfreq = calculate_word_frequency(rep)
     

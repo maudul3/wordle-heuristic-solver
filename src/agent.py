@@ -16,13 +16,13 @@ class Agent:
 
         # Sort word list by heuristic
         if heuristic == 'letter':
-            print (1)
+            x = 1
         elif heuristic == 'word':
-            print (1)
+            x = 1
         else:
             raise ValueError('Undefined heuristic')
 
         # Choose word at front of word list
 
-        return "guess"
+        return self.word_list[0]
 

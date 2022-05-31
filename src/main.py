@@ -13,7 +13,7 @@ if __name__ == '__main__':
         game = WordleGame(word)
         constraints = None
         while game.guesses_remaining and not game.correct_guess:
-            guess = agent.guess(constraints)
+            guess = agent.guess(constraints, heuristic)
             constraints = game.check_guess(guess)
 
         # Add to number of guesses list for data analysis
@@ -25,7 +25,7 @@ if __name__ == '__main__':
             (STARTING_GUESSES + (not game.correct_guess)) 
             - game.guesses_remaining
         )
-
+    
     heuristic = 'word'
     word_time_to_guess = []
     for word in test_list:
@@ -33,7 +33,7 @@ if __name__ == '__main__':
         game = WordleGame(word)
         constraints = None
         while game.guesses_remaining and not game.correct_guess:
-            guess = agent.guess(constraints)
+            guess = agent.guess(constraints, heuristic)
             constraints = game.check_guess(guess)
 
         # Add to number of guesses list for data analysis
