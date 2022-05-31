@@ -8,6 +8,8 @@ if __name__ == '__main__':
     # Can likely make the below two blocks their own functions
     heuristic = 'letter'
     letter_time_to_guess = []
+    # Possibly: subset the test list for compute time
+        # if we subset the list, make sure words aren't repeated
     for word in test_list:
         agent = Agent(agent_list)
         game = WordleGame(word)
@@ -25,6 +27,13 @@ if __name__ == '__main__':
             (STARTING_GUESSES + (not game.correct_guess)) 
             - game.guesses_remaining
         )
+
+        # Add file output for our time-to-guess lists
+        # Possibly: list of words that were guessed correctly
+        # Possibly: list of words that were not guessed
+
+        # 2 list that is number of guesses [1-7, 1-7, 1-7]
+        # one for each heuristics
     
     heuristic = 'word'
     word_time_to_guess = []

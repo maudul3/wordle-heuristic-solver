@@ -21,8 +21,10 @@ class WordleGame:
             guess (Word): agent's guess word
 
         Returns:
-            constraints (?): constraints the agent 
-            can use to make next guess
+            constraints (list<str>): constraints on word list, represented by
+                0 - correct position
+                1 - in word wrong position
+                2 - not in word 
         """
         self.guesses_remaining -= 1
 
