@@ -3,6 +3,18 @@ from agent import Agent
 from wordlegame import WordleGame, STARTING_GUESSES
 from random import random
 
+def constraints_to_emoji(constraints):
+    constraint_to_emoji = {
+        '0': '\U0001F7E5',
+        '1': '\U0001F7E8',
+        '2': '\U0001F7E9',
+    }
+    constraints_rep = ""
+    for constraint in constraints:
+        constraints_rep += constraint_to_emoji[constraint]
+    
+    return constraints_rep
+
 
 if __name__ == '__main__':
 
@@ -23,7 +35,7 @@ if __name__ == '__main__':
             constraints = game.check_guess(guess)
             if print_game < print_percentage:
                 print ("Guess: ", guess.rep)
-                print ("Constraints: ", constraints)
+                print ("Constraints: ", constraints_to_emoji(constraints) )
 
 
         # Add to number of guesses list for data analysis
