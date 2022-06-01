@@ -15,13 +15,12 @@ word_frequency_data.drop(word_frequency_data[word_frequency_data['word'].map(len
 #print(word_frequency_data)
 
 def calculate_word_frequency(rep):
-    count = 0 
-    for d in word_frequency_data['word']:
-        if d == rep:
-            count = int(word_frequency_data.loc[word_frequency_data['word'] == d, 'count'])
-
+    try:
+        count = int(word_frequency_data.loc[word_frequency_data['word'] == rep, 'count'])
+    except:
+        count = 1
     return count
 
 if __name__ == '__main__':
-    rep = "golgw"
+    rep = "brain"
     print (calculate_word_frequency(rep))
