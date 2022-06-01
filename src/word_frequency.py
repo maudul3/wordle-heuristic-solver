@@ -12,18 +12,16 @@ word_frequency_data = pd.read_csv(data_path)
 word_frequency_data['word']=word_frequency_data['word'].astype(str)
 word_frequency_data.drop(word_frequency_data[word_frequency_data['word'].map(len) < 5 ].index, inplace=True) 
 word_frequency_data.drop(word_frequency_data[word_frequency_data['word'].map(len) > 5 ].index, inplace=True) 
+#print(word_frequency_data)
 
 def calculate_word_frequency(rep):
-    '''Calculate the word frequency value for the
-    passed string
-    
-    Arguments:
-        rep (str): five-letter word
+    count = 0 
+    for d in word_frequency_data['word']:
+        if d == rep:
+            count = int(word_frequency_data.loc[word_frequency_data['word'] == d, 'count'])
 
-    Returns:
-        int: heuristic value
-    '''
-    return 1
+    return count
 
 if __name__ == '__main__':
-    print (1)
+    rep = "golgw"
+    print (calculate_word_frequency(rep))
