@@ -49,4 +49,3 @@ if __name__ == '__main__':
     game = WordleGame(test)
     constraints = game.check_guess(guess)
     print ("Constraints: ", constraints)
-    
