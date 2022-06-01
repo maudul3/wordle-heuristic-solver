@@ -7,7 +7,7 @@ data_path = (
 
 # Read in letter frequency data
 letter_frequency_data = pd.read_csv(data_path, usecols=['Letter','Count','Frequency'])
-print(letter_frequency_data)
+#print(letter_frequency_data)
 def calculate_letter_frequency(rep):
     word = rep.upper()
     count = 0
