@@ -18,6 +18,7 @@ def calculate_word_frequency(rep):
     try:
         count = int(word_frequency_data.loc[word_frequency_data['word'] == rep, 'count'])
     except:
+        # If a word is not in the dataframe we assign a count of 1
         count = 1
     return count
 
