@@ -39,7 +39,7 @@ Depending on your setup, you may need to specify `python` instead of `python3`.
 
 You may need to update your $PATH in order to run python.
 For example, to update zshell (MacOS default) do the following:
-From the command prompt type: vi ~/.zshrc
+From the command prompt type: 'vi ~/.zshrc'
 This will open the config file for your zshell where you can make alterations.
 Depending on your configuration, you will probably want to add:
 'export PATH=~/usr/local/bin/python3/bin:$PATH'
