@@ -45,9 +45,9 @@ class Agent:
 
         # Sort word list by heuristic
         if heuristic == 'letter':
-            x = 1
+            self.word_list = sorted(self.word_list, key=lambda x: x.wordfreq, reverse=True)
         elif heuristic == 'word':
-            x = 1
+            self.word_list = sorted(self.word_list, key=lambda x: x.characterfreq, reverse=True)
 
         # Choose word at front of word list
         self.most_recent_guess = self.word_list[0]
