@@ -15,11 +15,9 @@ def constraints_to_emoji(constraints):
     
     return constraints_rep
 
-
-if __name__ == '__main__':
-
+def run_experiment(heuristic=None, print_percentage=0.05):
     # Can likely make the below two blocks their own functions
-    no_heuristic_time_to_guess = []
+    time_to_guess = []
     # Possibly: subset the test list for compute time
         # if we subset the list, make sure words aren't repeated
     for word in test_list:
@@ -27,11 +25,10 @@ if __name__ == '__main__':
         game = WordleGame(word)
         constraints = []
         print_game = random()
-        print_percentage = 0.05
         if print_game < print_percentage:
             print ("Game for test word: ", word.rep )
         while game.guesses_remaining and not game.correct_guess:
-            guess = agent.guess(constraints)
+            guess = agent.guess(constraints, heuristic)
             constraints = game.check_guess(guess)
             if print_game < print_percentage:
                 print ("Guess: ", guess.rep)
@@ -43,7 +40,7 @@ if __name__ == '__main__':
         # accurate and inaccurate final guesses
         # Values in list 1-6 == correctly guessed &
         # 7 == did not correctly guess
-        no_heuristic_time_to_guess.append(
+        time_to_guess.append(
             (STARTING_GUESSES + (not game.correct_guess)) 
             - game.guesses_remaining
         )
@@ -54,37 +51,21 @@ if __name__ == '__main__':
         # 2 list that is number of guesses [1-7, 1-7, 1-7]
         # one for each heuristics
     correct_guesses = sum(
-        [1 if guess_number <= 6 else 0 for guess_number in no_heuristic_time_to_guess]
+        [1 if guess_number <= 6 else 0 for guess_number in time_to_guess]
     )
     no_correct_guesses = sum(
-        [1 if guess_number == 7 else 0 for guess_number in no_heuristic_time_to_guess] 
+        [1 if guess_number == 7 else 0 for guess_number in time_to_guess] 
     )
 
-    print ("Total games: ", len(no_heuristic_time_to_guess))
+    print ("Heuristic used: ", heuristic)
+    print ("Total games: ", len(time_to_guess))
     print ("Number of games with correct guess: ", correct_guesses)
     print ("Number of games with no correct guesses", no_correct_guesses)
     print ("% Successful Games: ", round(correct_guesses / (correct_guesses + no_correct_guesses) * 100, 2 ) )
 
-'''    
-    heuristic = 'word'
-    word_time_to_guess = []
-    for word in test_list:
-        agent = Agent(agent_list)
-        game = WordleGame(word)
-        constraints = []
-        while game.guesses_remaining and not game.correct_guess:
-            guess = agent.guess(constraints, heuristic)
-            constraints = game.check_guess(guess)
+    return time_to_guess
 
-        # Add to number of guesses list for data analysis
-        # Use of correct_guess is to distinguish between
-        # accurate and inaccurate final guesses
-        # Values in list 1-6 == correctly guessed &
-        # 7 == did not correctly guess
-        word_time_to_guess.append(
-            (STARTING_GUESSES + (not game.correct_guess)) 
-            - game.guesses_remaining
-        )
-'''
-
-
+if __name__ == '__main__':
+    no_heuristic_results = run_experiment(heuristic=None, print_percentage=0.005)
+    letter_results = run_experiment(heuristic='letter', print_percentage=0.005)
+    word_results = run_experiment(heuristic='word', print_percentage=0.005)
