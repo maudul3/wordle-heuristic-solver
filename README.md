@@ -46,7 +46,7 @@ This will open the config file for your zshell where you can make alterations.
 Depending on your configuration, you will probably want to add:
 `export PATH=~/usr/local/bin/python3/bin:$PATH`
 
-Also, please install pandas with the following line:
+Also, please install pandas with the following line at the command prompt:
 `pip3 install pandas`
 
 Depending on your setup, you may need to specify `pip` instead of `pip3`.
