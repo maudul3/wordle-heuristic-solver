@@ -1,3 +1,14 @@
+import os
+import platform
+
+print ("\nAI bot is now playing the games.\nPlease wait for results.\n")
+
+cmd = platform.system()
+
+if cmd == "Darwin":
+    os.system("open -a 'Google Chrome' wordle.gif --args --new-window --window-size=454,480")
+
+
 from word_lists import agent_list, test_list
 from agent import Agent
 from wordlegame import WordleGame, STARTING_GUESSES
@@ -66,6 +77,9 @@ def run_experiment(heuristic=None, print_percentage=0.05):
     return time_to_guess
 
 if __name__ == '__main__':
+
     no_heuristic_results = run_experiment(heuristic=None, print_percentage=0.005)
     letter_results = run_experiment(heuristic='letter', print_percentage=0.005)
     word_results = run_experiment(heuristic='word', print_percentage=0.005)
+
+
