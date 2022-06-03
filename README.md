@@ -41,7 +41,7 @@ You may need to update your $PATH in order to run python.
 
 For example, to update zshell (MacOS default) do the following:
 
-NOTE: This assumes you know how to use vi or vim
+NOTE: This assumes you know how to use vi or vim<br>
 From the command prompt type: `vi ~/.zshrc`
 This will open the config file for your zshell where you can make alterations.
 Depending on your configuration, you will probably want to add:
