@@ -1,11 +1,11 @@
 import os
 import platform
 
-print ("\nThis AI bot will play thousands of games of Wordle, and\n")
-print ("using its super-bot smarts will solve as many games as possible.\n")
-print ("As it is finishing it will display some games and the percentage\n")
-print ("of games that it has won. It plays using either brute force,\n")
-print ("using a word frequency heuristic, or using a letter frequency heuristic.\n")
+print ("\nThis AI bot will play thousands of games of Wordle, and")
+print ("using its super-bot smarts will solve as many games as possible.")
+print ("As it is finishing it will display some games and the percentage")
+print ("of games that it has won. It plays using either brute force,")
+print ("using a word frequency heuristic, or using a letter frequency heuristic.")
 print ("\nAI bot is now playing the games.\nPlease wait for results.\n")
 
 cmd = platform.system()
