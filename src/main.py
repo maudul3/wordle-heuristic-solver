@@ -5,7 +5,7 @@ print ("\nThis AI bot will play thousands of games of Wordle, and")
 print ("using its super-bot smarts will solve as many games as possible.")
 print ("As it is finishing it will display some games and the percentage")
 print ("of games that it has won. It plays using either brute force,")
-print ("using a word frequency heuristic, or using a letter frequency heuristic.")
+print ("using a letter frequency heuristic, or using a word frequency heuristic.")
 print ("\nAI bot is now playing the games.\nPlease wait for results.\n")
 
 cmd = platform.system()
@@ -42,13 +42,13 @@ def run_experiment(heuristic=None, print_percentage=0.05):
         constraints = []
         print_game = random()
         if print_game < print_percentage:
-            print ("Game for test word: ", word.rep )
+            print ("\n\n--------GAME WORD--> ", word.rep, "\n")
         while game.guesses_remaining and not game.correct_guess:
             guess = agent.guess(constraints, heuristic)
             constraints = game.check_guess(guess)
             if print_game < print_percentage:
-                print ("Guess: ", guess.rep)
-                print ("Constraints: ", constraints_to_emoji(constraints) )
+                print ("\nGuess: ", guess.rep)
+                print ("\tConstraints: ", constraints_to_emoji(constraints))
 
 
         # Add to number of guesses list for data analysis
@@ -73,11 +73,11 @@ def run_experiment(heuristic=None, print_percentage=0.05):
         [1 if guess_number == 7 else 0 for guess_number in time_to_guess] 
     )
 
-    print ("Heuristic used: ", heuristic)
-    print ("Total games: ", len(time_to_guess))
-    print ("Number of games with correct guess: ", correct_guesses)
-    print ("Number of games with no correct guesses", no_correct_guesses)
-    print ("% Successful Games: ", round(correct_guesses / (correct_guesses + no_correct_guesses) * 100, 2 ) )
+    print ("\nHeuristic used: ", heuristic)
+    print ("\nTotal games: ", len(time_to_guess))
+    print ("\nNumber of games with correct guess: ", correct_guesses)
+    print ("\nNumber of games with no correct guesses", no_correct_guesses)
+    print ("\n% Successful Games: ", round(correct_guesses / (correct_guesses + no_correct_guesses) * 100, 2 ) )
 
     return time_to_guess
 
