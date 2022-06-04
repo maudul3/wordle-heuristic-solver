@@ -51,13 +51,15 @@ def avg_guesses(guesses_list):
     avg = sum(updated_list) / len(updated_list)
     return avg
 
-
+# list 1: no heuristic
+# list 2: word frequency heuristic
+# list 3: letter frequency heuristic
 def generate_bar_plot(list1, list2, list3):
 
     # successful games bar plot
-    l1_success = percent_success(l1)
-    l2_success = percent_success(l2)
-    l3_success = percent_success(l3)
+    l1_success = percent_success(list1)
+    l2_success = percent_success(list2)
+    l3_success = percent_success(list3)
 
     success_data = {'No Heuristic': l1_success, 'Word Frequency Heuristic': l2_success,
                     'Letter Frequency Heuristic': l3_success}
@@ -70,9 +72,9 @@ def generate_bar_plot(list1, list2, list3):
     plt.title("Agent Performance: Successful Games")
 
     # average guesses bar plot
-    l1_avg = avg_guesses(l1)
-    l2_avg = avg_guesses(l2)
-    l3_avg = avg_guesses(l3)
+    l1_avg = avg_guesses(list1)
+    l2_avg = avg_guesses(list2)
+    l3_avg = avg_guesses(list3)
 
     guess_data = {'No Heuristic': l1_avg, 'Word Frequency Heuristic': l2_avg,
                   'Letter Frequency Heuristic': l3_avg}
@@ -87,11 +89,4 @@ def generate_bar_plot(list1, list2, list3):
     plt.show()
 
 
-if __name__ == '__main__':
-    length = 2315
-    l1 = generate_list(length)
-    l2 = generate_list(length)
-    l3 = generate_list(length)
-
-    generate_bar_plot(l1, l2, l3)
 

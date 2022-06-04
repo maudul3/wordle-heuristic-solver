@@ -18,6 +18,7 @@ from word_lists import agent_list, test_list
 from agent import Agent
 from wordlegame import WordleGame, STARTING_GUESSES
 from random import random
+from bar_plot import *
 
 def constraints_to_emoji(constraints):
     constraint_to_emoji = {
@@ -40,7 +41,7 @@ def run_experiment(heuristic=None, print_percentage=0.05):
         agent = Agent(agent_list)
         game = WordleGame(word)
         constraints = []
-        print_game = random()
+        print_game = random.random()
         if print_game < print_percentage:
             print ("\n\n--------GAME WORD--> ", word.rep, "\n")
         while game.guesses_remaining and not game.correct_guess:
@@ -87,4 +88,4 @@ if __name__ == '__main__':
     letter_results = run_experiment(heuristic='letter', print_percentage=0.005)
     word_results = run_experiment(heuristic='word', print_percentage=0.005)
 
-
+    generate_bar_plot(no_heuristic_results, word_results, letter_results)
