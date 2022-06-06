@@ -1,4 +1,4 @@
-# CS-441-541-Project
+# Wordle AI Solver
 
 # Repository Structure
 
