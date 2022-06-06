@@ -1,5 +1,7 @@
 # Wordle AI Solver
 
+AI solver for the Wordle game which leverages a search-and-reduce strategy as well as heuristics.
+
 # Repository Structure
 
 src - contains all original .py files<br>
