@@ -50,6 +50,9 @@ Depending on your configuration, you will probably want to add:
 Also, please install pandas with the following line at the command prompt:
 `pip3 install pandas`
 
+You might also need to install matplotlib with:
+`pip3 install matplotlib`
+
 Depending on your setup, you may need to specify `pip` instead of `pip3`.
 
 Now, just navigate to the src folder. If you are using the terminal type:
