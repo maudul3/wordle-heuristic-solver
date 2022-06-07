@@ -84,8 +84,8 @@ def run_experiment(heuristic=None, print_percentage=0.05):
 
 if __name__ == '__main__':
 
-    no_heuristic_results = run_experiment(heuristic=None, print_percentage=0.005)
-    letter_results = run_experiment(heuristic='letter', print_percentage=0.005)
-    word_results = run_experiment(heuristic='word', print_percentage=0.005)
+    no_heuristic_results = run_experiment(heuristic=None, print_percentage=0.001)
+    letter_results = run_experiment(heuristic='letter', print_percentage=0.001)
+    word_results = run_experiment(heuristic='word', print_percentage=0.001)
 
     generate_bar_plot(no_heuristic_results, word_results, letter_results)
