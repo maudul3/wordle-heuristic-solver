@@ -10,8 +10,8 @@ print ("\nAI bot is now playing the games.\nPlease wait for results.\n")
 
 cmd = platform.system()
 
-if cmd == "Darwin":
-    os.system("open -a 'Google Chrome' wordle.gif --args --new-window --window-size=454,480")
+# if cmd == "Darwin":
+#     os.system("open -a 'Google Chrome' wordle.gif --args --new-window --window-size=454,480")
 
 
 from word_lists import agent_list, test_list
@@ -49,7 +49,8 @@ def run_experiment(heuristic=None, print_percentage=0.05):
             constraints = game.check_guess(guess)
             if print_game < print_percentage:
                 print ("\nGuess: ", guess.rep)
-                print ("\tConstraints: ", constraints_to_emoji(constraints))
+                visual_constraints = game.get_visual_constraints(guess)
+                print ("\tConstraints: ", constraints_to_emoji(visual_constraints))
 
 
         # Add to number of guesses list for data analysis

@@ -39,13 +39,39 @@ class WordleGame:
                 constraints[i] = '1'
             else:
                 constraints[i] = '0'
+        return constraints
 
-        return constraints 
+    def get_visual_constraints(self, guess): 
+
+        word_dict = map_letters(self.word.rep)
+
+        constraints = ['-1','-1','-1','-1','-1']
+        for i, letter in enumerate(guess.rep):
+            if letter == self.word.rep[i]:
+                constraints[i] = '2'
+                word_dict[letter] -= 1
+            elif letter in set(self.word.rep) and word_dict[letter] > 0:
+            #elif letter in self.word.rep:
+                constraints[i] = '1'
+                word_dict[letter] -= 1
+            else:
+                constraints[i] = '0'
+
+        return constraints
+
+
+def map_letters(word):
+    d = {}
+    for idx, ltr in enumerate(word):
+        d[ltr] = sum(True for ltr in word if ltr == word[idx])
+    return d
 
 if __name__ == '__main__':
     from word import Word
-    test = Word("words")
-    guess = Word("board")
+    test = Word("lithe")
+    guess = Word("lilts")
     game = WordleGame(test)
     constraints = game.check_guess(guess)
     print ("Constraints: ", constraints)
+    visual_constraints = game.get_visual_constraints(guess)
+    print("Visual constraints: ", visual_constraints)
