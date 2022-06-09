@@ -10,8 +10,8 @@ print ("\nAI bot is now playing the games.\nPlease wait for results.\n")
 
 cmd = platform.system()
 
-# if cmd == "Darwin":
-#     os.system("open -a 'Google Chrome' wordle.gif --args --new-window --window-size=454,480")
+if cmd == "Darwin":
+    os.system("open -a 'Google Chrome' wordle.gif --args --new-window --window-size=454,480")
 
 
 from word_lists import agent_list, test_list
