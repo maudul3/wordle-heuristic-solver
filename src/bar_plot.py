@@ -61,8 +61,8 @@ def generate_bar_plot(list1, list2, list3):
     l2_success = percent_success(list2)
     l3_success = percent_success(list3)
 
-    success_data = {'No\nHeuristic': l1_success, 'Word\nFrequency\nHeuristic': l2_success,
-                    'Letter\nFrequency\nHeuristic': l3_success}
+    success_data = {'No\nHeuristic': l1_success, 
+                    'Letter\nFrequency\nHeuristic': l2_success, 'Word\nFrequency\nHeuristic': l3_success}
     h_type_label = list(success_data.keys())
     percent_label = list(success_data.values())
 
@@ -79,8 +79,11 @@ def generate_bar_plot(list1, list2, list3):
     l2_avg = avg_guesses(list2)
     l3_avg = avg_guesses(list3)
 
-    guess_data = {'No\nHeuristic': l1_avg, 'Word\nFrequency\nHeuristic': l2_avg,
-                  'Letter\n Frequency\nHeuristic': l3_avg}
+
+
+    guess_data = {'No\nHeuristic': l1_avg,
+                  'Letter\n Frequency\nHeuristic': l2_avg,
+                   'Word\nFrequency\nHeuristic': l3_avg}
 
     h_type_label = list(guess_data.keys())
     percent_label = list(guess_data.values())
