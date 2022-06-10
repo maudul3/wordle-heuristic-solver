@@ -44,9 +44,9 @@ class Agent:
         # Consider words not in word list? Needs attribute in that case
 
         # Sort word list by heuristic
-        if heuristic == 'letter':
+        if heuristic == 'word':
             self.word_list = sorted(self.word_list, key=lambda x: x.wordfreq, reverse=True)
-        elif heuristic == 'word':
+        elif heuristic == 'letter':
             self.word_list = sorted(self.word_list, key=lambda x: x.characterfreq, reverse=True)
 
         # Choose word at front of word list
