@@ -31,7 +31,10 @@ class WordleGame:
         if guess.rep == self.word.rep:
             self.correct_guess = True
 
+        # Init with -1 for debugging:
         constraints = ['-1','-1','-1','-1','-1']
+
+        # Loop through and assign each position appropriate constraint code.
         for i, letter in enumerate(guess.rep):
             if letter == self.word.rep[i]:
                 constraints[i] = '2'
@@ -39,13 +42,44 @@ class WordleGame:
                 constraints[i] = '1'
             else:
                 constraints[i] = '0'
+        return constraints
 
-        return constraints 
+    # Visualization requires slightly different constraint coding.
+    # Repeated letters in guess should not show "right letter, wrong place",
+    #  for example, unless the target word has the letter repeated as well.
+    def get_visual_constraints(self, guess): 
 
+        # Map each letter in target to number of instances of letter:
+        word_dict = map_letters(self.word.rep)
+
+        constraints = ['-1','-1','-1','-1','-1']
+        for i, letter in enumerate(guess.rep):
+            if letter == self.word.rep[i]:
+                constraints[i] = '2'
+                word_dict[letter] -= 1
+            # If the letter is "right letter, wrong place" AND we
+            #  haven't already exhausted our allotment for that coding:
+            elif letter in set(self.word.rep) and word_dict[letter] > 0:
+                constraints[i] = '1'
+                word_dict[letter] -= 1
+            else:
+                constraints[i] = '0'
+
+        return constraints
+
+def map_letters(word):
+    d = {}
+    for idx, ltr in enumerate(word):
+        d[ltr] = sum(True for ltr in word if ltr == word[idx])
+    return d
+
+# For testing:
 if __name__ == '__main__':
     from word import Word
-    test = Word("words")
-    guess = Word("board")
+    test = Word("lithe")
+    guess = Word("lilts")
     game = WordleGame(test)
     constraints = game.check_guess(guess)
     print ("Constraints: ", constraints)
+    visual_constraints = game.get_visual_constraints(guess)
+    print("Visual constraints: ", visual_constraints)
